@@ -12,19 +12,28 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Devices.Gpio;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
+// Initialize the GPIO pins on the Pi
 namespace SeniorDesign
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPage()
         {
             this.InitializeComponent();
+
+            _controller = GpioController.GetDefault();
+            _motorEnable = _controller.OpenPin(_pinEnable);
+            _motorControlRightF = _controller.OpenPin(_pinRightF);
+            _motorControlRightB = _controller.OpenPin(_pinRightB);
+            _motorControlLeftF = _controller.OpenPin(_pinLeftF);
+            _motorControlLeftB = _controller.OpenPin(_pinLeftB);
+            _motorEnable.SetDriveMode(GpioPinDriveMode.Output);
+            _motorControlRightF.SetDriveMode(GpioPinDriveMode.Output);
+            _motorControlRightB.SetDriveMode(GpioPinDriveMode.Output);
+            _motorControlLeftF.SetDriveMode(GpioPinDriveMode.Output);
+            _motorControlLeftB.SetDriveMode(GpioPinDriveMode.Output);
         }
     }
 }

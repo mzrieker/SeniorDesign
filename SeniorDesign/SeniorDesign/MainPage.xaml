@@ -1,35 +1,39 @@
-<Page
-    x:Class="PiDCMotorControl.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:PiDCMotorControl"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
- 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="50" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <TextBlock FontSize="30" Grid.Row="1" Grid.ColumnSpan="3">Motor Control</TextBlock>
-        <Button Name="btnIgnitionOn" Margin="5" Background="Green" Foreground="White"  Grid.Row="2" 
-                Click="btnIgnitionOn_Click">Ignition ON</Button>
-        <Button Name="btnIgnitionOff" Margin="5" Background="Red" Foreground="White" IsEnabled="False" 
-                Grid.Row="2" Grid.Column="1" Click="btnIgnitionOff_Click">Ignition Off</Button>
-        <Button Name="btnForward" Margin="5" Background="LightBlue" Foreground="DarkBlue" IsEnabled="False" 
-                Grid.Row="3" Click="btnForward_Click">Forward</Button>
-        <Button Name="btnReverse" Margin="5" Background="Orange" Foreground="OrangeRed" IsEnabled="False" 
-                Grid.Row="3" Grid.Column="1" Click="btnReverse_Click">Reverse</Button>
-        <Button Name="btnStop" Click="btnStop_Click" Background="Salmon" Foreground="Sienna" IsEnabled="True"
-                Grid.Row="4" Margin="5">Stop</Button>
-     </Grid>
+﻿<Page
+    x:Class="SeniorDesign.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SeniorDesign"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock FontSize="30" Grid.Row="1" Grid.ColumnSpan="3">Motor Control</TextBlock>
+        <Button Name="btnIgnitionOn" Margin="5" Background="Green" Foreground="White" Grid.Row="2"
+                Click="btnIgnitionOn_Click">Ignition On</Button>
+        <Button Name="btnIgnitionOff" Margin="5" Background="Red" Foreground="White" IsEnabled="False" 
+                Grid.Row="2" Grid.Column="1" Click="btnIgnitionOff_Click">Ignition Off</Button>
+        <Button Name="btnForward" Margin="5" Background="Blue" Foreground="DarkBlue" IsEnabled="False"
+                Grid.Row="3" Click="btnForward_Click">Forward</Button>
+        <Button Name="btnReverse" Margin="5" Background="Orange" Foreground="OrangeRed" IsEnabled="False"
+                Grid.Row="3" Grid.Column="1" Click="btnReverse_Click">Reverse</Button>
+        <Button Name="btnTurnLeft" Margin="5" Background="Blue" Foreground="DarkBlue" IsEnabled="False"
+                Grid.Row="4" Click="btnTurnL_Click">Turn Left</Button>
+        <Button Name="btnTurnRight" Margin="5" Background="Orange" Foreground="OrangeRed" IsEnabled="False"
+                Grid.Row="4" Grid.Column="1" Click="btnTurnR_Click">Turn Right</Button>
+        <Button Name="btnStop" Margin="5" Background="Salmon" Foreground="Sienna" IsEnabled="True"
+                Grid.Row="5" Click="btnStop_Click">Stop</Button>
+    </Grid>
 </Page>
