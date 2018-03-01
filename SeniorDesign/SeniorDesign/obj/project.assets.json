@@ -25575,11 +25575,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mzrie\\source\\repos\\SeniorDesign\\SeniorDesign\\SeniorDesign.csproj",
+      "projectUniqueName": "C:\\Users\\mzrie\\Documents\\Github\\SeniorDesign\\SeniorDesign\\SeniorDesign\\SeniorDesign.csproj",
       "projectName": "SeniorDesign",
-      "projectPath": "C:\\Users\\mzrie\\source\\repos\\SeniorDesign\\SeniorDesign\\SeniorDesign.csproj",
+      "projectPath": "C:\\Users\\mzrie\\Documents\\Github\\SeniorDesign\\SeniorDesign\\SeniorDesign\\SeniorDesign.csproj",
       "packagesPath": "C:\\Users\\mzrie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mzrie\\source\\repos\\SeniorDesign\\SeniorDesign\\obj\\",
+      "outputPath": "C:\\Users\\mzrie\\Documents\\Github\\SeniorDesign\\SeniorDesign\\SeniorDesign\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

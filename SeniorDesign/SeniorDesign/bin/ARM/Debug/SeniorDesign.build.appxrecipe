@@ -10,22 +10,22 @@
     <PackageArchitecture>arm</PackageArchitecture>
     <PackageIdentityName>e7eb193c-971b-46d6-aae3-53050becd6e5</PackageIdentityName>
     <PackageIdentityPublisher>CN=mzrie</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\obj\ARM\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\obj\ARM\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\bin\ARM\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\bin\ARM\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\bin\ARM\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\bin\ARM\Debug\SeniorDesign.exe">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\bin\ARM\Debug\SeniorDesign.exe">
       <PackagePath>entrypoint\SeniorDesign.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mzrie\.nuget\packages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
@@ -139,11 +139,14 @@
     <AppxPackagedFile Include="C:\Users\mzrie\.nuget\packages\runtime.win.system.runtime.extensions\4.1.0\runtimes\win\lib\netcore50\System.Runtime.Extensions.dll">
       <PackagePath>System.Runtime.Extensions.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\mzrie\.nuget\packages\runtime.win7-x64.microsoft.netcore.jit\1.0.3\runtimes\win7-x64\native\clrjit.dll">
+      <PackagePath>clrjit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\mzrie\.nuget\packages\runtime.win7-x64.runtime.native.system.io.compression\4.0.1\runtimes\win7-x64\native\clrcompression.dll">
+      <PackagePath>clrcompression.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mzrie\.nuget\packages\runtime.win7.system.private.uri\4.0.2\runtimes\win\lib\netcore50\System.Private.Uri.dll">
       <PackagePath>System.Private.Uri.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\.nuget\packages\runtime.win8-arm.runtime.native.system.io.compression\4.0.1\runtimes\win8-arm\native\clrcompression.dll">
-      <PackagePath>clrcompression.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\mzrie\.nuget\packages\system.appcontext\4.1.0\lib\netcore50\System.AppContext.dll">
       <PackagePath>System.AppContext.dll</PackagePath>
@@ -367,47 +370,47 @@
     <AppxPackagedFile Include="C:\Users\mzrie\.nuget\packages\system.xml.xmlserializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\bin\ARM\Debug\SeniorDesign.xr.xml">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\bin\ARM\Debug\SeniorDesign.xr.xml">
       <PackagePath>SeniorDesign.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\bin\ARM\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\mzrie\source\repos\SeniorDesign\SeniorDesign\bin\ARM\Debug\Core\SeniorDesign.exe">
+    <AppxPackagedFile Include="C:\Users\mzrie\Documents\Github\SeniorDesign\SeniorDesign\SeniorDesign\bin\ARM\Debug\Core\SeniorDesign.exe">
       <PackagePath>SeniorDesign.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
