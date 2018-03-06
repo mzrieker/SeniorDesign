@@ -2,6 +2,7 @@
 using Windows.Devices.Gpio;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using System.Net.Sockets;
 
 namespace SeniorDesign
 {
@@ -40,13 +41,13 @@ namespace SeniorDesign
             _motorControlLeftB.SetDriveMode(GpioPinDriveMode.Output);
         }*/
 
-        private void _turnOnIgnition()
+        public void _turnOnIgnition()
         {
             System.Threading.Tasks.Task.Delay(300).Wait();
             _motorEnable.Write(GpioPinValue.High);
         }
 
-        private void _forwardMotor()
+        public void _forwardMotor()
         {
             System.Threading.Tasks.Task.Delay(300).Wait();
             _motorControlRightF.Write(GpioPinValue.High);

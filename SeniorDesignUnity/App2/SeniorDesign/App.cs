@@ -10,19 +10,6 @@ using Windows.System;
 
 namespace SeniorDesign
 {
-    private int _pinEnable = 25;
-    private int _pinRightF = 12;
-    private int _pinRightB = 16;
-    private int _pinLeftF = 21;
-    private int _pinLeftB = 20;
-
-    private GpioController _controller;
-    private GpioPin _motorEnable;
-    private GpioPin _motorControlRightF;
-    private GpioPin _motorControlRightB;
-    private GpioPin _motorControlLeftF;
-    private GpioPin _motorControlLeftB;
-
     class App : IFrameworkView, IFrameworkViewSource
     {
         private WinRTBridge.WinRTBridge m_Bridge;
@@ -37,21 +24,6 @@ namespace SeniorDesign
             // Allow clients of this class to append their own callbacks.
             AddAppCallbacks(m_AppCallbacks);
 
-            if (Window.Current.CoreWindow.GetKeyState(VirtualKey.R).HasFlag(CoreVirtualKeyStates.Down))
-            {
-                System.Threading.Tasks.Task.Delay(300).Wait();
-                
-            }
-            else if (Window.Current.CoreWindow.GetKeyState(VirtualKey.O).HasFlag(CoreVirtualKeyStates.Down))
-            {
-                System.Threading.Tasks.Task.Delay(300).Wait();
-                _forwardMotor();
-            }
-            else if (Window.Current.CoreWindow.GetKeyState(VirtualKey.P).HasFlag(CoreVirtualKeyStates.Down))
-            {
-                System.Threading.Tasks.Task.Delay(300).Wait();
-                _turnOffIgnition();
-            }
         }
 
         public virtual void Initialize(CoreApplicationView applicationView)
