@@ -43,7 +43,7 @@ namespace SocketTest_Client
                 {
                     // The server hostname that we will be establishing a connection to.
                     // In this example, the server and client are in the same process.
-                    var hostName = new Windows.Networking.HostName("localhost");
+                    var hostName = new Windows.Networking.HostName("192.168.1.2");
 
                     this.clientListBox.Items.Add("client is trying to connect...");
 
