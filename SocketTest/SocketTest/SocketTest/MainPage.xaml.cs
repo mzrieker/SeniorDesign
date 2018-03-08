@@ -30,14 +30,14 @@ namespace SocketTest
         public string request;
         private StreamSocketListener streamSocketListener;
         private StreamSocket streamSocket;
-        private StreamWriter streamWriter;
+        //private StreamWriter streamWriter;
         private StreamReader streamReader;
-        private Stream outputStream;
+        //private Stream outputStream;
         public string command;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.StartServer();
+            //this.StartServer();
             //this.StartClient();
         }
 
@@ -93,38 +93,31 @@ namespace SocketTest
 
         private async void btnCloseServer_click(object sender, RoutedEventArgs e)
         {
-            command = "Close Socket";
+            /*command = "Close Socket";
             using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
             {
-                using (streamWriter = new StreamWriter(outputStream))
+                using (var streamWriter = new StreamWriter(outputStream))
                 {
                     await streamWriter.WriteLineAsync(command);
                     await streamWriter.FlushAsync();
                 }
-            }
+            }*/
             streamSocketListener.Dispose();
-            await this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.serverListBox.Items.Add("server closed its socket"));
+            await this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.serverListBox.Items.Add("Server closed the socket"));
         }
 
-        private async void btnSendHey_click(object sender, RoutedEventArgs e)
+        private async void btnOpenServer_click(object sender, RoutedEventArgs e)
         {
-            command = "Hey";
-            using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
-            {
-                using (streamWriter = new StreamWriter(outputStream))
-                {
-                    await streamWriter.WriteLineAsync(command);
-                    await streamWriter.FlushAsync();
-                }
-            }
+            await this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.serverListBox.Items.Add("Server is opening..."));
+            StartServer();
         }
 
         private async void btnIgnitionOn_Click(object sender, RoutedEventArgs e)
         {
             command = "On";
-            using (outputStream = streamSocket.OutputStream.AsStreamForWrite())
+            using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
             {
-                using (streamWriter)
+                using (var streamWriter = new StreamWriter(outputStream))
                 {
                     await streamWriter.WriteLineAsync(command);
                     await streamWriter.FlushAsync();
@@ -148,9 +141,9 @@ namespace SocketTest
         private async void btnForward_Click(object sender, RoutedEventArgs e)
         {
             command = "Forward";
-            using (outputStream)
+            using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
             {
-                using (streamWriter)
+                using (var streamWriter = new StreamWriter(outputStream))
                 {
                     await streamWriter.WriteLineAsync(command);
                     await streamWriter.FlushAsync();
@@ -198,9 +191,9 @@ namespace SocketTest
         private async void btnStop_Click(object sender, RoutedEventArgs e)
         {
             command = "Stop";
-            using (outputStream)
+            using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
             {
-                using (streamWriter)
+                using (var streamWriter = new StreamWriter(outputStream))
                 {
                     await streamWriter.WriteLineAsync(command);
                     await streamWriter.FlushAsync();

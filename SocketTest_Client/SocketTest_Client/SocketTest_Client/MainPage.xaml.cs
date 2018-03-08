@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Networking.Sockets;
+using Windows.Devices.Gpio;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -23,10 +24,35 @@ namespace SocketTest_Client
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private int _pinEnable = 25;
+        private int _pinRightF = 12;
+        private int _pinRightB = 16;
+        private int _pinLeftF = 21;
+        private int _pinLeftB = 20;
+
+        private GpioController _controller;
+        private GpioPin _motorEnable;
+        private GpioPin _motorControlRightF;
+        private GpioPin _motorControlRightB;
+        private GpioPin _motorControlLeftF;
+        private GpioPin _motorControlLeftB;
+
         public MainPage()
         {
             this.InitializeComponent();
+            _controller = GpioController.GetDefault();
+            _motorEnable = _controller.OpenPin(_pinEnable);
+            _motorControlRightF = _controller.OpenPin(_pinRightF);
+            _motorControlRightB = _controller.OpenPin(_pinRightB);
+            _motorControlLeftF = _controller.OpenPin(_pinLeftF);
+            _motorControlLeftB = _controller.OpenPin(_pinLeftB);
+            _motorEnable.SetDriveMode(GpioPinDriveMode.Output);
+            _motorControlRightF.SetDriveMode(GpioPinDriveMode.Output);
+            _motorControlRightB.SetDriveMode(GpioPinDriveMode.Output);
+            _motorControlLeftF.SetDriveMode(GpioPinDriveMode.Output);
+            _motorControlLeftB.SetDriveMode(GpioPinDriveMode.Output);
         }
+
 
         static string PortNumber = "1337";
         public StreamSocket streamSocket;
@@ -37,7 +63,67 @@ namespace SocketTest_Client
             this.StartClient();
         }
 
-       
+        public void _turnOnIgnition()
+        {
+            System.Threading.Tasks.Task.Delay(300).Wait();
+            _motorEnable.Write(GpioPinValue.High);
+        }
+
+        public void _forwardMotor()
+        {
+            System.Threading.Tasks.Task.Delay(300).Wait();
+            _motorControlRightF.Write(GpioPinValue.High);
+            _motorControlRightB.Write(GpioPinValue.Low);
+            _motorControlLeftF.Write(GpioPinValue.High);
+            _motorControlLeftB.Write(GpioPinValue.Low);
+        }
+
+        private void _turnLeft()
+        {
+            System.Threading.Tasks.Task.Delay(300).Wait();
+            _motorControlRightF.Write(GpioPinValue.High);
+            _motorControlRightB.Write(GpioPinValue.Low);
+            _motorControlLeftF.Write(GpioPinValue.Low);
+            _motorControlLeftB.Write(GpioPinValue.High);
+        }
+
+        private void _turnRight()
+        {
+            System.Threading.Tasks.Task.Delay(300).Wait();
+            _motorControlRightF.Write(GpioPinValue.Low);
+            _motorControlRightB.Write(GpioPinValue.High);
+            _motorControlLeftF.Write(GpioPinValue.High);
+            _motorControlLeftB.Write(GpioPinValue.Low);
+        }
+
+        private void _reverseMotor()
+        {
+            System.Threading.Tasks.Task.Delay(300).Wait();
+            _motorControlRightF.Write(GpioPinValue.Low);
+            _motorControlRightB.Write(GpioPinValue.High);
+            _motorControlLeftF.Write(GpioPinValue.Low);
+            _motorControlLeftB.Write(GpioPinValue.High);
+        }
+
+        private void _stopMotor()
+        {
+            System.Threading.Tasks.Task.Delay(300).Wait();
+            _motorControlRightF.Write(GpioPinValue.Low);
+            _motorControlRightB.Write(GpioPinValue.Low);
+            _motorControlLeftF.Write(GpioPinValue.Low);
+            _motorControlLeftB.Write(GpioPinValue.Low);
+        }
+
+        private void _turnOffIgnition()
+        {
+            System.Threading.Tasks.Task.Delay(300).Wait();
+            _motorEnable.Write(GpioPinValue.Low);
+            _motorControlRightF.Write(GpioPinValue.Low);
+            _motorControlRightB.Write(GpioPinValue.Low);
+            _motorControlLeftF.Write(GpioPinValue.Low);
+            _motorControlLeftB.Write(GpioPinValue.Low);
+        }
+
         public async void StartClient()
         {
             try
@@ -66,7 +152,50 @@ namespace SocketTest_Client
                     }
 
                     this.clientListBox.Items.Add(string.Format("client received the response: \"{0}\" ", response));
-                    StartClient();
+                    if (response == "Close Socket")
+                    {
+                        streamSocket.Dispose();
+                        this.clientListBox.Items.Add("Client Socket Closed");
+                    }
+                    else if (response == "On")
+                    {
+                        _turnOnIgnition();
+                        StartClient();
+                    }
+                    else if (response == "Off")
+                    {
+                        _turnOffIgnition();
+                        StartClient();
+                    }
+                    else if (response == "Forward")
+                    {
+                        _forwardMotor();
+                        StartClient();
+                    }
+                    else if (response == "Reverse")
+                    {
+                        _reverseMotor();
+                        StartClient();
+                    }
+                    else if (response == "Turn Left")
+                    {
+                        _turnLeft();
+                        StartClient();
+                    }
+                    else if (response == "Turn Right")
+                    {
+                        _turnRight();
+                        StartClient();
+                    }
+                    else if (response == "Stop")
+                    {
+                        _stopMotor();
+                        StartClient();
+                    }
+                    else
+                    {
+                        StartClient();
+                    }
                 }
 
                 //this.clientListBox.Items.Add("client closed its socket");
@@ -92,11 +221,13 @@ namespace SocketTest_Client
             }
 
             this.clientListBox.Items.Add(string.Format("client sent the request: \"{0}\"", request));
+            StartClient();
         }
 
         private void btnSendHello_click(object sender, RoutedEventArgs e)
         {
             SendHello();
         }
+
     }
 }

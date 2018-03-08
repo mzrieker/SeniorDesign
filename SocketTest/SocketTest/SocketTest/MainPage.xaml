@@ -33,8 +33,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-            <Button Name="SendHeyButton"  Margin="20" Grid.Column="0" Grid.Row="2" Height="100" Width="200"
-                    Click="btnSendHey_click">Send Hey</Button>
+            <Button Name="OpenServerButton"  Margin="20" Grid.Column="0" Grid.Row="2" Height="100" Width="200"
+                    Click="btnOpenServer_click">Open Server</Button>
             <Button Name="CloseServerButton"  Margin="20" Grid.Column="0" Grid.Row="3" Height="100" Width="200"
                     Click="btnCloseServer_click">Close Server</Button>
             <Button Name="btnIgnitionOn" Margin="5" Background="Green" Foreground="White" Grid.Row="2"
