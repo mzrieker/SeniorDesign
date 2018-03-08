@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Networking.Sockets;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -26,7 +27,9 @@ namespace SocketTest_Client
         {
             this.InitializeComponent();
         }
+
         static string PortNumber = "1337";
+        public StreamSocket streamSocket;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -34,12 +37,13 @@ namespace SocketTest_Client
             this.StartClient();
         }
 
-        private async void StartClient()
+       
+        public async void StartClient()
         {
             try
             {
                 // Create the StreamSocket and establish a connection to the echo server.
-                using (var streamSocket = new Windows.Networking.Sockets.StreamSocket())
+                using (streamSocket = new Windows.Networking.Sockets.StreamSocket())
                 {
                     // The server hostname that we will be establishing a connection to.
                     // In this example, the server and client are in the same process.
@@ -50,19 +54,6 @@ namespace SocketTest_Client
                     await streamSocket.ConnectAsync(hostName, MainPage.PortNumber);
 
                     this.clientListBox.Items.Add("client connected");
-
-                    // Send a request to the echo server.
-                    string request = "Hello, World!";
-                    using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
-                    {
-                        using (var streamWriter = new StreamWriter(outputStream))
-                        {
-                            await streamWriter.WriteLineAsync(request);
-                            await streamWriter.FlushAsync();
-                        }
-                    }
-
-                    this.clientListBox.Items.Add(string.Format("client sent the request: \"{0}\"", request));
 
                     // Read data from the echo server.
                     string response;
@@ -75,15 +66,37 @@ namespace SocketTest_Client
                     }
 
                     this.clientListBox.Items.Add(string.Format("client received the response: \"{0}\" ", response));
+                    StartClient();
                 }
 
-                this.clientListBox.Items.Add("client closed its socket");
+                //this.clientListBox.Items.Add("client closed its socket");
             }
             catch (Exception ex)
             {
                 Windows.Networking.Sockets.SocketErrorStatus webErrorStatus = Windows.Networking.Sockets.SocketError.GetStatus(ex.GetBaseException().HResult);
                 this.clientListBox.Items.Add(webErrorStatus.ToString() != "Unknown" ? webErrorStatus.ToString() : ex.Message);
             }
+        }
+
+        // Send a request to the echo server.
+        private async void SendHello()
+        {
+            string request = "Hello, World!";
+            using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
+            {
+                using (var streamWriter = new StreamWriter(outputStream))
+                {
+                    await streamWriter.WriteLineAsync(request);
+                    await streamWriter.FlushAsync();
+                }
+            }
+
+            this.clientListBox.Items.Add(string.Format("client sent the request: \"{0}\"", request));
+        }
+
+        private void btnSendHello_click(object sender, RoutedEventArgs e)
+        {
+            SendHello();
         }
     }
 }

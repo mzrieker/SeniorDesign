@@ -9,7 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="400"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -17,6 +17,41 @@
             <TextBlock Margin="9.6,0" Style="{StaticResource TitleTextBlockStyle}" Text="TCP socket example"/>
             <TextBlock Margin="7.2,0,0,0" Style="{StaticResource HeaderTextBlockStyle}" Text="StreamSocket &amp; StreamSocketListener"/>
         </StackPanel>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+            <Button Name="SendHeyButton"  Margin="20" Grid.Column="0" Grid.Row="2" Height="100" Width="200"
+                    Click="btnSendHey_click">Send Hey</Button>
+            <Button Name="CloseServerButton"  Margin="20" Grid.Column="0" Grid.Row="3" Height="100" Width="200"
+                    Click="btnCloseServer_click">Close Server</Button>
+            <Button Name="btnIgnitionOn" Margin="5" Background="Green" Foreground="White" Grid.Row="2"
+                    Grid.Column="1"    Click="btnIgnitionOn_Click">Ignition On</Button>
+            <Button Name="btnIgnitionOff" Margin="5" Background="Red" Foreground="White" IsEnabled="True" 
+                    Grid.Row="2" Grid.Column="2" Click="btnIgnitionOff_Click">Ignition Off</Button>
+            <Button Name="btnForward" Margin="5" Background="Blue" Foreground="DarkBlue" IsEnabled="True"
+                    Grid.Row="3" Grid.Column="1" Click="btnForward_Click">Forward</Button>
+            <Button Name="btnReverse" Margin="5" Background="Orange" Foreground="OrangeRed" IsEnabled="True"
+                Grid.Row="3" Grid.Column="2" Click="btnReverse_Click">Reverse</Button>
+            <Button Name="btnTurnLeft" Margin="5" Background="Blue" Foreground="DarkBlue" IsEnabled="True"
+                Grid.Row="4" Grid.Column="1" Click="btnTurnL_Click">Turn Left</Button>
+            <Button Name="btnTurnRight" Margin="5" Background="Orange" Foreground="OrangeRed" IsEnabled="True"
+                Grid.Row="4" Grid.Column="2" Click="btnTurnR_Click">Turn Right</Button>
+            <Button Name="btnStop" Margin="20" Height="100" Width="200" Background="Salmon" Foreground="Sienna" IsEnabled="True"
+                Grid.Row="5" Click="btnStop_Click">Stop</Button>
+        </Grid>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -27,7 +62,6 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Margin="9.6" Style="{StaticResource SubtitleTextBlockStyle}" Text="client"/>
             <ListBox x:Name="clientListBox" Grid.Row="1" Margin="9.6"/>
             <TextBlock Grid.Column="1" Margin="9.6" Style="{StaticResource SubtitleTextBlockStyle}" Text="server"/>
             <ListBox x:Name="serverListBox" Grid.Column="1" Grid.Row="1" Margin="9.6"/>

@@ -17,7 +17,7 @@
             <TextBlock Margin="9.6,0" Style="{StaticResource TitleTextBlockStyle}" Text="TCP socket example"/>
             <TextBlock Margin="7.2,0,0,0" Style="{StaticResource HeaderTextBlockStyle}" Text="StreamSocket &amp; StreamSocketListener"/>
         </StackPanel>
-
+        
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -28,9 +28,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Margin="9.6" Style="{StaticResource SubtitleTextBlockStyle}" Text="client"/>
-            <ListBox x:Name="clientListBox" Grid.Row="1" Margin="9.6"/>
-            <TextBlock Grid.Column="1" Margin="9.6" Style="{StaticResource SubtitleTextBlockStyle}" Text="server"/>
-            <ListBox x:Name="serverListBox" Grid.Column="1" Grid.Row="1" Margin="9.6"/>
+            <ListBox x:Name="clientListBox" Grid.Row="2" Margin="9.6"/>
+            <Button Name="SendHelloButton"  Margin="20" Grid.Column="1" Grid.Row="0" Height="100" Width="200"
+                    Click="btnSendHello_click">Send Hello</Button>
+            <ListBox x:Name="serverListBox" Grid.Column="1" Grid.Row="3" Margin="9.6"/>
         </Grid>
     </Grid>
 </Page>

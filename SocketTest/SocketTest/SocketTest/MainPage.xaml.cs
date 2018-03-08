@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using SeniorDesign;
+using Windows.Networking.Sockets;
 
 
 namespace SocketTest
@@ -26,6 +27,13 @@ namespace SocketTest
         }
 
         static string PortNumber = "1337";
+        public string request;
+        private StreamSocketListener streamSocketListener;
+        private StreamSocket streamSocket;
+        private StreamWriter streamWriter;
+        private StreamReader streamReader;
+        private Stream outputStream;
+        public string command;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -37,7 +45,7 @@ namespace SocketTest
         {
             try
             {
-                var streamSocketListener = new Windows.Networking.Sockets.StreamSocketListener();
+                streamSocketListener = new Windows.Networking.Sockets.StreamSocketListener();
 
                 // The ConnectionReceived event is raised when connections are received.
                 streamSocketListener.ConnectionReceived += this.StreamSocketListener_ConnectionReceived;
@@ -57,29 +65,147 @@ namespace SocketTest
 
         private async void StreamSocketListener_ConnectionReceived(Windows.Networking.Sockets.StreamSocketListener sender, Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs args)
         {
-            string request;
-            using (var streamReader = new StreamReader(args.Socket.InputStream.AsStreamForRead()))
+            streamSocket = args.Socket;
+            await this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.serverListBox.Items.Add("Client Connected"));
+
+            using (streamReader = new StreamReader(args.Socket.InputStream.AsStreamForRead()))
             {
                 request = await streamReader.ReadLineAsync();
             }
-
-            await this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.serverListBox.Items.Add(string.Format("server received the request: \"{0}\"", request)));
-
-            // Echo the request back as the response.
-            using (Stream outputStream = args.Socket.OutputStream.AsStreamForWrite())
-            {
-                using (var streamWriter = new StreamWriter(outputStream))
+        
+            await this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.serverListBox.Items.Add("Client Connected"));
+        }
+        
+        // Echo the request back as the response.
+        /*private async void btnSendHey_click(object sender, RoutedEventArgs e)
+           {
+                using (Stream outputStream = args.Socket.OutputStream.AsStreamForWrite())
                 {
-                    await streamWriter.WriteLineAsync(request);
+                    using (var streamWriter = new StreamWriter(outputStream))
+                    {
+                        await streamWriter.WriteLineAsync(request);
+                        await streamWriter.FlushAsync();
+                    }
+                }
+
+                await this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.serverListBox.Items.Add(string.Format("server sent back the response: \"{0}\"", request)));
+            }*/
+
+        private async void btnCloseServer_click(object sender, RoutedEventArgs e)
+        {
+            command = "Close Socket";
+            using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
+            {
+                using (streamWriter = new StreamWriter(outputStream))
+                {
+                    await streamWriter.WriteLineAsync(command);
                     await streamWriter.FlushAsync();
                 }
             }
-
-            await this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.serverListBox.Items.Add(string.Format("server sent back the response: \"{0}\"", request)));
-
-            sender.Dispose();
-
+            streamSocketListener.Dispose();
             await this.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.serverListBox.Items.Add("server closed its socket"));
+        }
+
+        private async void btnSendHey_click(object sender, RoutedEventArgs e)
+        {
+            command = "Hey";
+            using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
+            {
+                using (streamWriter = new StreamWriter(outputStream))
+                {
+                    await streamWriter.WriteLineAsync(command);
+                    await streamWriter.FlushAsync();
+                }
+            }
+        }
+
+        private async void btnIgnitionOn_Click(object sender, RoutedEventArgs e)
+        {
+            command = "On";
+            using (outputStream = streamSocket.OutputStream.AsStreamForWrite())
+            {
+                using (streamWriter)
+                {
+                    await streamWriter.WriteLineAsync(command);
+                    await streamWriter.FlushAsync();
+                }
+            }
+        }
+
+        private async void btnIgnitionOff_Click(object sender, RoutedEventArgs e)
+        {
+            command = "Off";
+            using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
+            {
+                using (var streamWriter = new StreamWriter(outputStream))
+                {
+                    await streamWriter.WriteLineAsync(command);
+                    await streamWriter.FlushAsync();
+                }
+            }
+        }
+
+        private async void btnForward_Click(object sender, RoutedEventArgs e)
+        {
+            command = "Forward";
+            using (outputStream)
+            {
+                using (streamWriter)
+                {
+                    await streamWriter.WriteLineAsync(command);
+                    await streamWriter.FlushAsync();
+                }
+            }
+        }
+
+        private async void btnReverse_Click(object sender, RoutedEventArgs e)
+        {
+            command = "Reverse";
+            using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
+            {
+                using (var streamWriter = new StreamWriter(outputStream))
+                {
+                    await streamWriter.WriteLineAsync(command);
+                    await streamWriter.FlushAsync();
+                }
+            }
+        }
+        private async void btnTurnL_Click(object sender, RoutedEventArgs e)
+        {
+            command = "Turn Left";
+            using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
+            {
+                using (var streamWriter = new StreamWriter(outputStream))
+                {
+                    await streamWriter.WriteLineAsync(command);
+                    await streamWriter.FlushAsync();
+                }
+            }
+        }
+        private async void btnTurnR_Click(object sender, RoutedEventArgs e)
+        {
+            command = "Turn Right";
+            using (Stream outputStream = streamSocket.OutputStream.AsStreamForWrite())
+            {
+                using (var streamWriter = new StreamWriter(outputStream))
+                {
+                    await streamWriter.WriteLineAsync(command);
+                    await streamWriter.FlushAsync();
+                }
+            }
+        }
+
+        private async void btnStop_Click(object sender, RoutedEventArgs e)
+        {
+            command = "Stop";
+            using (outputStream)
+            {
+                using (streamWriter)
+                {
+                    await streamWriter.WriteLineAsync(command);
+                    await streamWriter.FlushAsync();
+                }
+            }
         }
     }
 }
