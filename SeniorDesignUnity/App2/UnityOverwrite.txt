@@ -5,16 +5,17 @@
 # Write a line equal to 'overwrite-all' (without quotes) to overwrite everything (preserved accross builds)
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
-SeniorDesign.sln: 9E2294AF62AF3408D416862FB0DD7475
-SeniorDesign\App.cs: B23A20BB47DFFABB500C49A838C6BE2A
-SeniorDesign\Package.appxmanifest: D2C5EE4C088D655A1C24FC0CC29FDA6F
-SeniorDesign\project.json: 1D02BC64BAC0D041019673A1C4C51737
-SeniorDesign\SeniorDesign.csproj: 29F05F0C2F97139BFA228563BD36AE49
-SeniorDesign\SeniorDesign.csproj.user: BEFB8AC4886C4CFDD3C68445D6F19B04
-SeniorDesign\Assets\SplashScreen.scale-200.png: A85C1D7624B6902CF8CEBD6F0200A826
-SeniorDesign\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
-SeniorDesign\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
-SeniorDesign\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D
-SeniorDesign\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
-SeniorDesign\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
-SeniorDesign\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
+MixedRealityToolkit-Unity.sln: 3EBB35D4016829402A5EFD0499D79E2C
+GeneratedProjects\UWP\Assembly-CSharp\project.json: 1D02BC64BAC0D041019673A1C4C51737
+MixedRealityToolkit-Unity\App.cs: 359493A65B0102579AFDBF44F3B9FDAC
+MixedRealityToolkit-Unity\MixedRealityToolkit-Unity.csproj: 4289D100DA4CD0863FC213423C7DFA74
+MixedRealityToolkit-Unity\MixedRealityToolkit-Unity.csproj.user: BEFB8AC4886C4CFDD3C68445D6F19B04
+MixedRealityToolkit-Unity\Package.appxmanifest: 84D431A6D006E95B6BC358DBDD868D15
+MixedRealityToolkit-Unity\project.json: 1D02BC64BAC0D041019673A1C4C51737
+MixedRealityToolkit-Unity\Assets\SplashScreen.scale-200.png: A85C1D7624B6902CF8CEBD6F0200A826
+MixedRealityToolkit-Unity\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
+MixedRealityToolkit-Unity\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
+MixedRealityToolkit-Unity\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D
+MixedRealityToolkit-Unity\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
+MixedRealityToolkit-Unity\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
+MixedRealityToolkit-Unity\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
