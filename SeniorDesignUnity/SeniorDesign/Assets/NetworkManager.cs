@@ -15,6 +15,7 @@ public class NetworkManager : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.S))
 			{
 				SetupServer();
+				Debug.Log("Setting Up Server...");
 			}
 
 			if (Input.GetKeyDown(KeyCode.C))
@@ -43,7 +44,8 @@ public class NetworkManager : MonoBehaviour
 	// Create a server and listen on a port
 	public void SetupServer()
 	{
-		NetworkServer.Listen(4444);
+		NetworkServer.Listen(1337);
+		Debug.Log("Server Set Up");
 		isAtStartup = false;
 	}
 

@@ -55,7 +55,7 @@ namespace SocketTest_Client
         }
 
 
-        static string PortNumber = "1337";
+        static string PortNumber = "1338";
         public StreamSocket streamSocket;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
