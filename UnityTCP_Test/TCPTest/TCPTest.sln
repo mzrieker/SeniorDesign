@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPTest", "TCPTest.csproj", "{A62EEEE9-17B6-47A6-182C-9A074E5B3CDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A62EEEE9-17B6-47A6-182C-9A074E5B3CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A62EEEE9-17B6-47A6-182C-9A074E5B3CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A62EEEE9-17B6-47A6-182C-9A074E5B3CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A62EEEE9-17B6-47A6-182C-9A074E5B3CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

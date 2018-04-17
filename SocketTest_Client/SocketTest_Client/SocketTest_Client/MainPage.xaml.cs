@@ -40,7 +40,12 @@ namespace SocketTest_Client
         public MainPage()
         {
             this.InitializeComponent();
+<<<<<<< HEAD
+			/*
             _controller = GpioController.GetDefault();
+=======
+            /*_controller = GpioController.GetDefault();
+>>>>>>> 645f86dc6c601e4c8198ad942ef9e9b8cbba2c81
             _motorEnable = _controller.OpenPin(_pinEnable);
             _motorControlRightF = _controller.OpenPin(_pinRightF);
             _motorControlRightB = _controller.OpenPin(_pinRightB);
@@ -51,10 +56,11 @@ namespace SocketTest_Client
             _motorControlRightB.SetDriveMode(GpioPinDriveMode.Output);
             _motorControlLeftF.SetDriveMode(GpioPinDriveMode.Output);
             _motorControlLeftB.SetDriveMode(GpioPinDriveMode.Output);
+			*/
         }
 
 
-        static string PortNumber = "1337";
+        static string PortNumber = "1338";
         public StreamSocket streamSocket;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -133,7 +139,11 @@ namespace SocketTest_Client
                 {
                     // The server hostname that we will be establishing a connection to.
                     // In this example, the server and client are in the same process.
-                    var hostName = new Windows.Networking.HostName("192.168.1.2");
+<<<<<<< HEAD
+                    var hostName = new Windows.Networking.HostName("192.168.1.4");
+=======
+                    var hostName = new Windows.Networking.HostName("localhost");
+>>>>>>> 645f86dc6c601e4c8198ad942ef9e9b8cbba2c81
 
                     this.clientListBox.Items.Add("client is trying to connect...");
 
