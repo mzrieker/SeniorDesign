@@ -41,11 +41,15 @@ namespace SocketTest_Client
         {
             this.InitializeComponent();
 <<<<<<< HEAD
+<<<<<<< HEAD
 			/*
             _controller = GpioController.GetDefault();
 =======
             /*_controller = GpioController.GetDefault();
 >>>>>>> 645f86dc6c601e4c8198ad942ef9e9b8cbba2c81
+=======
+            /*_controller = GpioController.GetDefault();
+>>>>>>> f9d0daf7359047b4825a8ad145feebd3c92c50cf
             _motorEnable = _controller.OpenPin(_pinEnable);
             _motorControlRightF = _controller.OpenPin(_pinRightF);
             _motorControlRightB = _controller.OpenPin(_pinRightB);
@@ -140,10 +144,14 @@ namespace SocketTest_Client
                     // The server hostname that we will be establishing a connection to.
                     // In this example, the server and client are in the same process.
 <<<<<<< HEAD
+<<<<<<< HEAD
                     var hostName = new Windows.Networking.HostName("192.168.1.4");
 =======
                     var hostName = new Windows.Networking.HostName("localhost");
 >>>>>>> 645f86dc6c601e4c8198ad942ef9e9b8cbba2c81
+=======
+                    var hostName = new Windows.Networking.HostName("localhost");
+>>>>>>> f9d0daf7359047b4825a8ad145feebd3c92c50cf
 
                     this.clientListBox.Items.Add("client is trying to connect...");
 
