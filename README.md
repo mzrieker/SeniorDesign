@@ -1,4 +1,6 @@
 # SeniorDesign
 My undergraduate senior design project at the University of Wyoming.
 
+The goal of this project is to use a Raspberry Pi 3 (running Windows 10 IoT Core) and a Microsoft Hololens to control a small robotic platform. This platform will have two DC motors (powering two separate wheels) controlled by an H-Bridge mounted on the robotic platform. The Raspberry Pi will take commands via WiFi (TCP / IP sockets) from the Microsoft Hololens. A user will control the robotic platform (turning it, moving it forward/backward, etc.) via model manipulation. I.e. the model will appear in the Hololens and will allow the user to interact with it. If the user pushes / turns the model the robotic platform will move accordingly. There will also be a live feed from a camera mounted on the platform that streams to the Hololens. This will assist the user in control and not limit them to being in the same vicinity as the platform. The fundamental concept of this project (communication between a Raspberry Pi and Microsoft Hololens) will have unlimited applications in the years to come, especially as the Hololens becomes more and more affordable to the general public. 
+
 See also: https://github.com/mzrieker/SeniorDesignHololensApplication
